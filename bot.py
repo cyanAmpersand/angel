@@ -72,7 +72,7 @@ else:
 all_servers = {}
 all_channels = {}
 message_logs = []
-all_users = []
+user_ids = {}
 emoji = {}
 
 async def bg_status():
@@ -97,6 +97,11 @@ async def on_ready():
         all_servers[s.id] = s
         for c in s.channels:
             all_channels[c.id] = c
+        for m in s.members:
+            user_ids[m.id] = m.name
+
+    for m in user_ids:
+        print(m + " " + user_ids[m])
 
     if message_logging_on:
         for channel in all_channels:
