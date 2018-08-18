@@ -20,7 +20,7 @@ if sys.platform == "linux":
     print("running linux")
     linux = True
     testing = False
-rpi_dir = "/home/discordbots/angel/"
+rpi_dir = "/home/chloe/angel/"
 
 message_logging_on = False
 twz_on = False
@@ -50,7 +50,7 @@ if pinbot_on:
     statuses.append("pinbot")
 
 if linux:
-    file_dir = "/home/discordbots/angel/"
+    file_dir = "/home/chloe/angel/"
 else:
     file_dir = ""
 
