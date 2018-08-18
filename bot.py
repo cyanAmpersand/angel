@@ -80,7 +80,7 @@ async def bg_status():
     counter = 0
     while not client.is_closed:
         await client.change_presence(game=discord.Game(name=statuses[counter%len(statuses)]))
-        print(statuses[counter%len(statuses)])
+        #print(statuses[counter%len(statuses)])
         await asyncio.sleep(10)
         counter += 1
 
