@@ -70,9 +70,9 @@ else:
     output_channel = "392516565364375576"
 
 all_servers = {}
-channels = []
+all_channels = {}
 message_logs = []
-members = []
+all_users = []
 emoji = {}
 
 async def bg_status():
@@ -93,21 +93,13 @@ async def on_ready():
 
     await client.change_presence(game=discord.Game(name="initializing..."))
 
-    friendzone = client.get_server("208293541435277313")
-
     for s in client.servers:
         all_servers[s.id] = s
-
-    for c in friendzone.channels:
-        channels.append(c)
-
-    for m in friendzone.members:
-        if not m.bot:
-            members.append(m)
-            print(m.display_name)
+        for c in s.channels:
+            all_channels[c.id] = c
 
     if message_logging_on:
-        for channel in channels:
+        for channel in all_channels:
             async for message in client.logs_from(channel,limit=999999):
                 print(message.channel.name + " / " + message.author.name + ": " + message.clean_content)
                 message_logs.append(message)
@@ -116,7 +108,7 @@ async def on_ready():
 
     print("found " + str(len(message_logs)) + " messages in " + str(time.time() - start_time) + " seconds")
 
-    c_output = friendzone.get_channel(output_channel)
+    c_output = client.get_channel(output_channel)
     await client.send_message(c_output,"4N631 online.")
 
     print('ready')
@@ -185,7 +177,7 @@ async def on_message(message):
                         response = "Not a valid hex code."
             if sillystuff_on:
                 if msgstr.startswith("snapture"):
-                    msg_content = sillystuff.infinitysnap(members)
+                    msg_content = sillystuff.infinitysnap(message.server.members)
                     print("snap called")
                     try:
                         await client.send_file(responseChannel,"snap.png",filename = "snap.png",content=msg_content)
