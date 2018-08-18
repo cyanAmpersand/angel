@@ -175,6 +175,12 @@ async def on_message(message):
                         except FileNotFoundError:
                             await client.send_file(responseChannel,rpi_dir + "colour.png")
                         #response = url
+                    elif "roblox" in msgstr:
+                        urllib.request.urlretrieve(hexcodes.get_hex_image("00F"), file_dir + "colour.png")
+                        try:
+                            await client.send_file(responseChannel,"colour.png")
+                        except FileNotFoundError:
+                            await client.send_file(responseChannel,rpi_dir + "colour.png")
                     else:
                         response = "Not a valid hex code."
             if sillystuff_on:
