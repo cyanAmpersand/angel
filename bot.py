@@ -179,7 +179,7 @@ async def on_message(message):
                         response = "Not a valid hex code."
             if sillystuff_on:
                 if msgstr.startswith("snapture"):
-                    msg_content = sillystuff.infinitysnap(message,members)
+                    msg_content = sillystuff.infinitysnap(members)
                     print("snap called")
                     try:
                         await client.send_file(responseChannel,"snap.png",filename = "snap.png",content=msg_content)

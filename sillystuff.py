@@ -1,18 +1,17 @@
 import random
 import botfunctions
 
-def infinitysnap(message, members):
-    users = []
+def infinitysnap(members):
     deaths = 0
     response = "```"
     for m in members:
         name = m.name
-        if (random.random() > 0.5 or m.id == "125424672765509632") and u.id != "190065758267637760":
+        if (random.random() > 0.5 or m.id == "125424672765509632") and m.id != "190065758267637760":
             response += name + " was killed.\n"
             deaths += 1
         else:
             response += name + " was spared.\n"
-    response += str(deaths) + "/" + str(len(users)) + " users were killed. The server is now balanced, as all things should be.```"
+    response += str(deaths) + "/" + str(len(members)) + " users were killed. The server is now balanced, as all things should be.```"
     return response
 
 def infinitysnaptest(usernames):
