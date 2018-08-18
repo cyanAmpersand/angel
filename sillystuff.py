@@ -1,18 +1,13 @@
 import random
+import botfunctions
 
-def infinitysnap(message,usernames):
-    print(usernames)
+def infinitysnap(message, members):
     users = []
     deaths = 0
-    for member in message.server.members:
-        if not member.bot:
-            users.append(member)
     response = "```"
-    for u in users:
-        name = u.name
-        if u.id in usernames:
-            name = usernames[u.id]
-        if (random.random() > 0.5 or u.id == "125424672765509632") and u.id != "190065758267637760":
+    for m in members:
+        name = m.name
+        if (random.random() > 0.5 or m.id == "125424672765509632") and u.id != "190065758267637760":
             response += name + " was killed.\n"
             deaths += 1
         else:
