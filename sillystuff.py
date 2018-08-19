@@ -32,6 +32,7 @@ def infinitysnap(members):
         print("odd correction")
         snapture_info[random.choice(users).id]["alive"] = True
     response = []
+    random.shuffle(users)
     for m in users:
         if not snapture_info[m.id]["alive"]:
             response.append(m.name + " was killed.")
