@@ -206,6 +206,7 @@ async def on_message(message):
                         response = "Not a valid hex code."
             if sillystuff_on:
                 if msgstr.startswith("snapture"):
+                    print("snap called")
                     if "slow" in msgstr:
                         if snapture_editing["message"] is None:
                             try:
@@ -218,8 +219,8 @@ async def on_message(message):
                         else:
                             await client.send_message(responseChannel,"Whoa there Thanos, there's a snapture already in progress.")
                     else:
-                        msg_content = "```" + "".join(sillystuff.infinitysnap(message.server.members)) + "```"
-                        print("snap called")
+                        snapstring = sillystuff.infinitysnap(message.server.members)
+                        msg_content = "```" + "\n".join(snapstring[:-1]) + "```" + snapstring[-1]
                         try:
                             await client.send_file(responseChannel,"snap.png",filename = "snap.png",content=msg_content)
                         except FileNotFoundError:
