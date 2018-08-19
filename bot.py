@@ -74,6 +74,11 @@ all_channels = {}
 message_logs = []
 user_ids = {}
 emoji = {}
+snapture_editing = {
+    "message":None,
+    "edits":[],
+    "content_new":""
+}
 
 async def bg_status():
     await client.wait_until_ready()
@@ -83,6 +88,25 @@ async def bg_status():
         #print(statuses[counter%len(statuses)])
         await asyncio.sleep(10)
         counter += 1
+
+async def snapture_edit():
+    await client.wait_until_ready()
+    while not client.is_closed:
+        if snapture_editing["message"] is not None:
+            print("snapping...")
+            snapture_editing["content_new"] = snapture_editing["message"].content
+            print(snapture_editing["edits"])
+            for e in snapture_editing["edits"][:-1]:
+                print(e)
+                snapture_editing["content_new"] += "\n" + e
+                await client.edit_message(snapture_editing["message"],"```" + snapture_editing["content_new"] + "```")
+                await asyncio.sleep(3*random.random())
+            await client.edit_message(snapture_editing["message"], "```" + snapture_editing["content_new"] + "```" + snapture_editing["edits"][-1])
+            print("snap done")
+            snapture_editing["message"] = None
+            snapture_editing["edits"] = []
+            snapture_editing["content_new"] = ""
+        await asyncio.sleep(1)
 
 @client.event
 async def on_ready():
@@ -182,12 +206,24 @@ async def on_message(message):
                         response = "Not a valid hex code."
             if sillystuff_on:
                 if msgstr.startswith("snapture"):
-                    msg_content = sillystuff.infinitysnap(message.server.members)
-                    print("snap called")
-                    try:
-                        await client.send_file(responseChannel,"snap.png",filename = "snap.png",content=msg_content)
-                    except FileNotFoundError:
-                        await client.send_file(responseChannel, rpi_dir + "snap.png", filename="snap.png", content=msg_content)
+                    if "slow" in msgstr:
+                        if snapture_editing["message"] is None:
+                            try:
+                                snap_message = await client.send_file(responseChannel, "snap.png", filename="snap.png")
+                            except FileNotFoundError:
+                                snap_message = await client.send_file(responseChannel, rpi_dir + "snap.png",filename="snap.png")
+                            print(snap_message.id)
+                            snapture_editing["edits"] = sillystuff.infinitysnap(message.server.members)
+                            snapture_editing["message"] = snap_message
+                        else:
+                            await client.send_message(responseChannel,"Whoa there Thanos, there's a snapture already in progress.")
+                    else:
+                        msg_content = "```" + "".join(sillystuff.infinitysnap(message.server.members)) + "```"
+                        print("snap called")
+                        try:
+                            await client.send_file(responseChannel,"snap.png",filename = "snap.png",content=msg_content)
+                        except FileNotFoundError:
+                            await client.send_file(responseChannel, rpi_dir + "snap.png", filename="snap.png", content=msg_content)
             if quotes_on and message_logging_on:
                 if msgstr.startswith("quote"):
                     msgid = msgstr.split("quote")[1].strip()
@@ -212,4 +248,5 @@ async def on_message(message):
         await client.send_message(responseChannel,response)
 
 client.loop.create_task(bg_status())
+client.loop.create_task(snapture_edit())
 client.run(token)

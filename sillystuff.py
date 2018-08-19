@@ -31,14 +31,14 @@ def infinitysnap(members):
     if total_users%2 != 0:
         print("odd correction")
         snapture_info[random.choice(users).id]["alive"] = True
-    response = "```"
+    response = []
     for m in users:
         if not snapture_info[m.id]["alive"]:
-            response += m.name + " was killed.\n"
+            response.append(m.name + " was killed.")
             deaths += 1
         else:
-            response += m.name + " was spared.\n"
-    response += str(deaths) + "/" + str(total_users) + " users were killed. The server is now balanced, as all things should be.```"
+            response.append(m.name + " was spared.")
+    response.append(str(deaths) + "/" + str(total_users) + " users were killed. The server is now balanced, as all things should be.")
     return response
 
 def infinitysnaptest(usernames):
