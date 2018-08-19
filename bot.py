@@ -166,6 +166,11 @@ async def on_message(message):
     else:
         if message.content.startswith(cmd_prefix):
             msgstr = message.content[len(cmd_prefix)::]
+            if msgstr == "help":
+                try:
+                    await client.send_file(responseChannel,"help.png",filename="help.png")
+                except FileNotFoundError:
+                    await client.send_file(responseChannel,rpi_dir + "help.png", filename="help.png")
             if rngesus_on:
                 if msgstr.startswith("roll "):
                     print("roll called")
