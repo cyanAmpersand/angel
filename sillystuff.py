@@ -25,9 +25,9 @@ def infinitysnap(members):
     random.shuffle(users)
     deaths = 0
     n = 0
-    for m in snapture_info:
+    for m in users:
         if n_dead_members(snapture_info) < total_users/2:
-            snapture_info[m]["alive"] = False
+            snapture_info[m.id]["alive"] = False
     if total_users%2 != 0:
         print("odd correction")
         snapture_info[random.choice(users).id]["alive"] = True
