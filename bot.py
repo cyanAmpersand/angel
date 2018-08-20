@@ -50,9 +50,9 @@ if pinbot_on:
     statuses.append("pinbot")
 
 if linux:
-    file_dir = "/home/chloe/angel/"
+    file_dir = "/"
 else:
-    file_dir = ""
+    file_dir = "../"
 
 if testing:
     token = botfunctions.loadToken(file_dir + "testbot.tkn")
