@@ -50,9 +50,9 @@ if pinbot_on:
     statuses.append("pinbot")
 
 if linux:
-    file_dir = "/home/chloe/angel/"
+    file_dir = "/"
 else:
-    file_dir = ""
+    file_dir = "../"
 
 if testing:
     token = botfunctions.loadToken(file_dir + "testbot.tkn")
@@ -65,9 +65,9 @@ else:
 client = discord.Client()
 
 if testing:
-    output_channel = "452631971764502528"
+    output_channel = "395422229074018320"
 else:
-    output_channel = "392516565364375576"
+    output_channel = "395422229074018320"
 
 all_servers = {}
 all_channels = {}
@@ -169,7 +169,8 @@ async def on_message(message):
             if msgstr == "help":
                 try:
                     await client.send_file(responseChannel,"help.png",filename="help.png")
-                except FileNotFoundError:
+                except FileNotFoundError as e:
+                    await client.send_message(output_channel, str(e))
                     await client.send_file(responseChannel,rpi_dir + "help.png", filename="help.png")
             if rngesus_on:
                 if msgstr.startswith("roll "):
@@ -198,14 +199,16 @@ async def on_message(message):
                         urllib.request.urlretrieve(url,file_dir + "colour.png")
                         try:
                             await client.send_file(responseChannel,"colour.png")
-                        except FileNotFoundError:
+                        except FileNotFoundError as e:
+                            await client.send_message(output_channel, str(e))
                             await client.send_file(responseChannel,rpi_dir + "colour.png")
                         #response = url
                     elif "roblox" in msgstr:
                         urllib.request.urlretrieve(hexcodes.get_hex_image("00F"), file_dir + "colour.png")
                         try:
                             await client.send_file(responseChannel,"colour.png")
-                        except FileNotFoundError:
+                        except FileNotFoundError as e:
+                            await client.send_message(output_channel, str(e))
                             await client.send_file(responseChannel,rpi_dir + "colour.png")
                     else:
                         response = "Not a valid hex code."
@@ -216,7 +219,8 @@ async def on_message(message):
                         if snapture_editing["message"] is None:
                             try:
                                 snap_message = await client.send_file(responseChannel, "snap.png", filename="snap.png")
-                            except FileNotFoundError:
+                            except FileNotFoundError as e:
+                                await client.send_message(output_channel, str(e))
                                 snap_message = await client.send_file(responseChannel, rpi_dir + "snap.png",filename="snap.png")
                             print(snap_message.id)
                             snapture_editing["edits"] = sillystuff.infinitysnap(message.server.members)
@@ -228,7 +232,8 @@ async def on_message(message):
                         msg_content = "```" + "\n".join(snapstring[:-1]) + "```" + snapstring[-1]
                         try:
                             await client.send_file(responseChannel,"snap.png",filename = "snap.png",content=msg_content)
-                        except FileNotFoundError:
+                        except FileNotFoundError as e:
+                            await client.send_message(output_channel,str(e))
                             await client.send_file(responseChannel, rpi_dir + "snap.png", filename="snap.png", content=msg_content)
             if quotes_on and message_logging_on:
                 if msgstr.startswith("quote"):
