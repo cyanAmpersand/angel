@@ -62,8 +62,6 @@ else:
     token = botfunctions.loadToken(file_dir + "angel.tkn")
     cmd_prefix = "!"
 
-print(token)
-
 client = discord.Client()
 
 if testing:
