@@ -50,7 +50,7 @@ if pinbot_on:
     statuses.append("pinbot")
 
 if linux:
-    file_dir = "/"
+    file_dir = "../"
 else:
     file_dir = "../"
 
