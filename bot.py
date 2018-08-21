@@ -55,11 +55,11 @@ else:
     file_dir = "../"
 
 if testing:
-    token = botfunctions.loadToken(file_dir + "testbot.tkn")
+    token = botfunctions.loadToken(file_dir + "testbot.tkn").strip()
     cmd_prefix = "!t_"
     statuses = ["chloe is tinkering"]
 else:
-    token = botfunctions.loadToken(file_dir + "angel.tkn")
+    token = botfunctions.loadToken(file_dir + "angel.tkn").strip()
     cmd_prefix = "!"
 
 client = discord.Client()
