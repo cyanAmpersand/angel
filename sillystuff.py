@@ -35,10 +35,10 @@ def infinitysnap(members):
     random.shuffle(users)
     for m in users:
         if not snapture_info[m.id]["alive"]:
-            response.append(m.name + " was killed.")
+            response.append(m.display_name + " was killed.")
             deaths += 1
         else:
-            response.append(m.name + " was spared.")
+            response.append(m.display_name + " was spared.")
     response.append(str(deaths) + "/" + str(total_users) + " users were killed. The server is now balanced, as all things should be.")
     return response
 
