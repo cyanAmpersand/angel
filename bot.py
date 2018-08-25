@@ -2,7 +2,7 @@ import discord
 import timewizard as twz
 import rngesus
 import botfunctions
-import sillystuff
+import snapture
 import hexcodes
 import poll
 import urllib.request
@@ -25,7 +25,7 @@ rpi_dir = "/home/chloe/angel/"
 message_logging_on = False
 twz_on = False
 rngesus_on = True
-sillystuff_on = True
+snapture_on = False
 hexcodes_on = True
 imageshortcuts_on = False
 quotes_on = True
@@ -38,7 +38,7 @@ if twz_on:
     statuses.append("time wizard 2.0")
 if rngesus_on:
     statuses.append("RNGesus 2.0")
-if sillystuff_on:
+if snapture_on:
     statuses.append("snapture")
 if hexcodes_on:
     statuses.append("hex codes")
@@ -209,7 +209,7 @@ async def on_message(message):
                             await client.send_file(responseChannel,rpi_dir + "colour.png")
                     else:
                         response = "Not a valid hex code."
-            if sillystuff_on:
+            if snapture_on:
                 if msgstr.startswith("snapture"):
                     print("snap called")
                     if "slow" in msgstr:
@@ -219,12 +219,12 @@ async def on_message(message):
                             except FileNotFoundError:
                                 snap_message = await client.send_file(responseChannel, rpi_dir + "snap.png",filename="snap.png")
                             print(snap_message.id)
-                            snapture_editing["edits"] = sillystuff.infinitysnap(message.server.members)
+                            snapture_editing["edits"] = snapture.infinitysnap(message.server.members)
                             snapture_editing["message"] = snap_message
                         else:
                             await client.send_message(responseChannel,"Whoa there Thanos, there's a snapture already in progress.")
                     else:
-                        snapstring = sillystuff.infinitysnap(message.server.members)
+                        snapstring = snapture.infinitysnap(message.server.members)
                         msg_content = "```" + "\n".join(snapstring[:-1]) + "```" + snapstring[-1]
                         try:
                             await client.send_file(responseChannel,"snap.png",filename = "snap.png",content=msg_content)
@@ -254,5 +254,6 @@ async def on_message(message):
         await client.send_message(responseChannel,response)
 
 client.loop.create_task(bg_status())
-client.loop.create_task(snapture_edit())
+if snapture_on:
+    client.loop.create_task(snapture_edit())
 client.run(token)
