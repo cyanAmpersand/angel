@@ -49,10 +49,7 @@ if quotes_on and message_logging_on:
 if pinbot_on:
     statuses.append("pinbot")
 
-if linux:
-    file_dir = "../"
-else:
-    file_dir = "../"
+file_dir = "../"
 
 if testing:
     token = botfunctions.loadToken(file_dir + "testbot.tkn").strip()
@@ -64,10 +61,7 @@ else:
 
 client = discord.Client()
 
-if testing:
-    output_channel = "452631971764502528"
-else:
-    output_channel = "392516565364375576"
+output_channel = "392516565364375576"
 
 all_servers = {}
 all_channels = {}
@@ -196,10 +190,7 @@ async def on_message(message):
                     if hexcodes.is_valid_hex(msgstr[3::]):
                         url = hexcodes.get_hex_image(msgstr[3::])
                         urllib.request.urlretrieve(url,file_dir + "colour.png")
-                        try:
-                            await client.send_file(responseChannel,"colour.png")
-                        except FileNotFoundError:
-                            await client.send_file(responseChannel,rpi_dir + "colour.png")
+                        await client.send_file(responseChannel,file_dir + "colour.png")
                         #response = url
                     elif "roblox" in msgstr:
                         urllib.request.urlretrieve(hexcodes.get_hex_image("00F"), file_dir + "colour.png")
