@@ -159,7 +159,7 @@ async def on_message(message):
         pass
     else:
         if message.content.startswith(cmd_prefix):
-            msgstr = message.content[len(cmd_prefix)::]
+            msgstr = message.content[len(cmd_prefix)::].lower()
             if msgstr == "help":
                 try:
                     await client.send_file(responseChannel,"help.png",filename="help.png")

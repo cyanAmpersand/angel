@@ -5,6 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="879ead1b-1d6d-42e1-83ee-32aef7c56c7a" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bot.py" beforeDir="false" afterPath="$PROJECT_DIR$/bot.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -22,8 +23,8 @@
       <file leaf-file-name="bot.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/bot.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
-              <caret line="191" column="36" lean-forward="true" selection-start-line="191" selection-start-column="36" selection-end-line="191" selection-end-column="36" />
+            <state relative-caret-position="221">
+              <caret line="161" column="63" selection-start-line="161" selection-start-column="63" selection-end-line="161" selection-end-column="63" />
               <folding>
                 <element signature="e#0#14#0" expanded="true" />
               </folding>
@@ -70,8 +71,8 @@
       <file leaf-file-name="hexcodes.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/hexcodes.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="9" column="16" lean-forward="true" selection-start-line="9" selection-start-column="16" selection-end-line="9" selection-end-column="16" />
+            <state relative-caret-position="255">
+              <caret line="15" column="14" lean-forward="true" selection-start-line="15" selection-start-column="14" selection-end-line="15" selection-end-column="14" />
             </state>
           </provider>
         </entry>
@@ -152,7 +153,6 @@
         <option value="$PROJECT_DIR$/userlist.py" />
         <option value="$PROJECT_DIR$/botfunctions.py" />
         <option value="$PROJECT_DIR$/timewizard.py" />
-        <option value="$PROJECT_DIR$/hexcodes.py" />
         <option value="$PROJECT_DIR$/testbot.tkn" />
         <option value="$PROJECT_DIR$/angel.tkn" />
         <option value="$PROJECT_DIR$/../../Documents/python/discordbots/emojilogging.py" />
@@ -162,6 +162,7 @@
         <option value="$PROJECT_DIR$/logging.py" />
         <option value="$PROJECT_DIR$/sillystuff.py" />
         <option value="$PROJECT_DIR$/sillystuff.py" />
+        <option value="$PROJECT_DIR$/hexcodes.py" />
         <option value="$PROJECT_DIR$/bot.py" />
         <option value="$PROJECT_DIR$/bot.py" />
       </list>
@@ -421,14 +422,14 @@
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17849687" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.32985386" side_tool="true" visible="true" weight="0.261723" />
+      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.3308977" side_tool="true" visible="true" weight="0.261723" />
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Python Console" order="7" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.67014617" visible="true" weight="0.261723" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.6691023" visible="true" weight="0.261723" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49895832" weight="0.39416847" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49791232" weight="0.39367503" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info content_ui="combo" id="Project" order="0" weight="0.0890625" />
@@ -801,13 +802,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/msglogging.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" selection-start-line="8" selection-end-line="8" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/poll.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
@@ -824,15 +818,22 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/hexcodes.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="16" lean-forward="true" selection-start-line="9" selection-start-column="16" selection-end-line="9" selection-end-column="16" />
+        <state relative-caret-position="255">
+          <caret line="15" column="14" lean-forward="true" selection-start-line="15" selection-start-column="14" selection-end-line="15" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/msglogging.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" selection-start-line="8" selection-end-line="8" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/bot.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="191" column="36" lean-forward="true" selection-start-line="191" selection-start-column="36" selection-end-line="191" selection-end-column="36" />
+        <state relative-caret-position="221">
+          <caret line="161" column="63" selection-start-line="161" selection-start-column="63" selection-end-line="161" selection-end-column="63" />
           <folding>
             <element signature="e#0#14#0" expanded="true" />
           </folding>
