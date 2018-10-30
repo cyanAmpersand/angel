@@ -32,7 +32,11 @@ quotes_on = True
 pinbot_on = True
 poll_on = True
 
+logged_messages = []
+
 statuses = []
+
+message_logs = []
 
 if twz_on:
     statuses.append("time wizard 2.0")
@@ -61,7 +65,7 @@ else:
 
 client = discord.Client()
 
-output_channel = "392516565364375576"
+output_channel = "395422229074018320"
 
 all_servers = {}
 all_channels = {}
@@ -109,7 +113,7 @@ async def on_ready():
     print(client.user.id)
     print('------')
 
-    await client.change_presence(game=discord.Game(name="initializing..."))
+    #await client.change_presence(game=discord.Game(name="initializing..."))
 
     for s in client.servers:
         all_servers[s.id] = s
@@ -140,13 +144,15 @@ async def on_ready():
 async def on_reaction_add(reaction,user):
     print("reaction added")
     e_pin = "\U0001F4CC"
-    pin_threshold = 2
+    pin_threshold = 3
+    bandwagon_threshold = 5
     if reaction.emoji == e_pin and pinbot_on:
         print("emoji = " + e_pin)
         for r in reaction.message.reactions:
             if r.emoji == e_pin:
                 if r.count >= pin_threshold:
                     await client.pin_message(reaction.message)
+                if r.count >= bandwagon_threshold:
                     await client.add_reaction(reaction.message,"\U0001F4CC")
 
 @client.event
